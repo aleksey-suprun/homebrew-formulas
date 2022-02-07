@@ -8,6 +8,8 @@ class ApacheSparkAT312 < Formula
   license "Apache-2.0"
   head "https://github.com/apache/spark.git", branch: "master"
 
+  keg_only :versioned_formula
+
   depends_on "openjdk@11"
 
   def install

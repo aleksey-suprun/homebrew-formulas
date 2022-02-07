@@ -6,10 +6,11 @@ class ApacheSparkAT245 < Formula
   sha256 "020be52524e4df366eb974d41a6e18fcb6efcaba9a51632169e917c74267dd81"
   head "https://github.com/apache/spark.git"
   
-
   livecheck do
     url :stable
   end
+
+  keg_only :versioned_formula
 
   depends_on "openjdk@8"
 

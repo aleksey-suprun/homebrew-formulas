@@ -10,6 +10,8 @@ class ApacheSparkAT240 < Formula
     url :stable
   end
 
+  keg_only :versioned_formula
+
   depends_on "openjdk@8"
 
   def install
