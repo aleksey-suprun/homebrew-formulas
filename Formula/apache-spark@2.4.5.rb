@@ -11,8 +11,6 @@ class ApacheSparkAT245 < Formula
     url :stable
   end
 
-  bottle :unneeded
-
   depends_on "openjdk@8"
 
   def install
