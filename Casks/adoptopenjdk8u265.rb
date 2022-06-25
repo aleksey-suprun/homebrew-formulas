@@ -2,13 +2,18 @@ cask "adoptopenjdk8u265" do
   version "8,265:b01"
   sha256 "db8b19f943bf96774a805b646b2c0ddd532123391e2e3873fe3720558e6091fe"
 
-  url "https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk#{version.before_comma}u#{version.after_comma.before_colon}-#{version.after_colon}/OpenJDK#{version.before_comma}U-jdk_x64_mac_hotspot_#{version.before_comma}u#{version.after_comma.before_colon}#{version.after_comma.after_colon}.pkg",
-      verified: "github.com/AdoptOpenJDK/openjdk8-binaries/"
-  appcast "https://github.com/adoptopenjdk/openjdk#{version.before_comma}-binaries/releases.atom"
+  url "https://github.com/AdoptOpenJDK/openjdk#{version.before_comma}-binaries/releases/download/jdk8u265-b01/OpenJDK8U-jdk_x64_mac_hotspot_8u265b01.pkg",
+      verified: "https://github.com/AdoptOpenJDK"
+  appcast "https://github.com/adoptopenjdk/openjdk#{version.before_comma}-binaries/releases/latest"
   name "AdoptOpenJDK 8"
+  desc "AdoptOpenJDK OpenJDK (Java) Development Kit"
   homepage "https://adoptopenjdk.net/"
 
-  pkg "OpenJDK#{version.before_comma}U-jdk_x64_mac_hotspot_#{version.before_comma}u#{version.after_comma.before_colon}#{version.after_comma.after_colon}.pkg"
+  pkg "OpenJDK8U-jdk_x64_mac_hotspot_8u265b01.pkg"
 
-  uninstall pkgutil: "net.adoptopenjdk.#{version.before_comma}.jdk"
+  postflight do
+    system_command "/usr/sbin/pkgutil", args: ["--pkg-info", "net.adoptopenjdk.8.jdk"], print_stdout: true
+  end
+
+  uninstall pkgutil: "net.adoptopenjdk.8.jdk"
 end
